@@ -12,8 +12,8 @@ import com.tourApplication.springboot.model.TourCategoryMaster;
 @Repository
 public interface TourCategoryRepository extends JpaRepository<TourCategoryMaster, Long>{
 	
-	@Query("SELECT categoryName FROM TourCategoryMaster WHERE subCategoryId LIKE %?1%")
-	List<String> findAll(String subcatid);
+	@Query("SELECT t FROM TourCategoryMaster t WHERE subCategoryId LIKE %?1%")
+	List<TourCategoryMaster> findAll(String subcatid);
 	
 	//List<TourCategoryMaster> findBysubCategoryId(String subcatid);
 }

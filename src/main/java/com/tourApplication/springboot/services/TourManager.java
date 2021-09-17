@@ -26,7 +26,7 @@ public interface TourManager {
 	//SignUp Manager
 	void saveNewUser(SignupMaster user);
 	List<SignupMaster> getUser(String username);
-	List<String> allCategories(String subcatid);
+	List<TourCategoryMaster> allCategories(String subcatid);
 	void updateUsername(SignupMaster user);
 	void deleteUsername(Long id);
 

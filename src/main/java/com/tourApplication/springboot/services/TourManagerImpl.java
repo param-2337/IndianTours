@@ -47,7 +47,7 @@ public class TourManagerImpl implements TourManager {
 	}
 
 	@Override
-	public List<String> allCategories(String subcatid) {
+	public List<TourCategoryMaster> allCategories(String subcatid) {
 		return catrepo.findAll(subcatid);
 	}
 

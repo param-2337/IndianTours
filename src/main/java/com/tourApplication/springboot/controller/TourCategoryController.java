@@ -46,8 +46,8 @@ public class TourCategoryController {
 	}
 	
 	@GetMapping("records/subcatid/{subcatid}")
-	public List<String> getCategories(@PathVariable String subcatid){
-		List<String> catlist = tourManager.allCategories(subcatid);
+	public List<TourCategoryMaster> getCategories(@PathVariable String subcatid){
+		List<TourCategoryMaster> catlist = tourManager.allCategories(subcatid);
 		return catlist;
 	}
 	
