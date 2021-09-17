@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.tourApplication.springboot.model.BookingHeaderTable;
 import com.tourApplication.springboot.model.CostMaster;
 import com.tourApplication.springboot.model.CustomerMaster;
+import com.tourApplication.springboot.model.DateMaster;
 import com.tourApplication.springboot.model.ItineryMaster;
 import com.tourApplication.springboot.model.PassengerTable;
 import com.tourApplication.springboot.model.SignupMaster;
@@ -67,5 +68,14 @@ public interface TourManager {
 	void deleteCustomer(Long id);
 	void updateCustomer(CustomerMaster cust);
 	Optional<CustomerMaster> getCustomerByID(Long id);
+	
+	
+	
+	//Date Master
+	List<DateMaster> getDates();
+	void addDate(DateMaster date);
+	void deleteDate(Long id);
+	void updateDate(DateMaster date);
+	Optional<DateMaster> getDateByID(Long id);
 	
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.tourApplication.springboot.model.BookingHeaderTable;
 import com.tourApplication.springboot.model.CostMaster;
 import com.tourApplication.springboot.model.CustomerMaster;
+import com.tourApplication.springboot.model.DateMaster;
 import com.tourApplication.springboot.model.ItineryMaster;
 import com.tourApplication.springboot.model.PassengerTable;
 import com.tourApplication.springboot.model.SignupMaster;
@@ -16,6 +17,7 @@ import com.tourApplication.springboot.model.TourCategoryMaster;
 import com.tourApplication.springboot.repository.BookingRepository;
 import com.tourApplication.springboot.repository.CostRepository;
 import com.tourApplication.springboot.repository.CustomerRepository;
+import com.tourApplication.springboot.repository.DateRepository;
 import com.tourApplication.springboot.repository.ItineryRepository;
 import com.tourApplication.springboot.repository.PassengerRepository;
 import com.tourApplication.springboot.repository.SignUpRepository;
@@ -82,7 +84,7 @@ public class TourManagerImpl implements TourManager {
 	public void deleteUsername(Long id) {
 		signrepo.deleteById(id);
 	}
-	
+
 //------------------Itinery Repository-------------------------
 	@Autowired
 	private ItineryRepository itineryrepo;
@@ -106,8 +108,7 @@ public class TourManagerImpl implements TourManager {
 	public void deleteItinery(Long id) {
 		itineryrepo.deleteById(id);
 	}
-	
-	
+
 //------------------------Cost Repository-----------------
 	@Autowired
 	private CostRepository costrepo;
@@ -133,12 +134,11 @@ public class TourManagerImpl implements TourManager {
 	public void deleteCost(Long id) {
 		costrepo.deleteById(id);
 	}
-	
+
 	@Override
 	public void updateCost(CostMaster cost) {
 		costrepo.save(cost);
 	}
-
 
 	/*
 	 * @Override public void updateCost(CostMaster cost,Long id) {
@@ -180,15 +180,14 @@ public class TourManagerImpl implements TourManager {
 
 	@Override
 	public void updatePass(PassengerTable pass) {
-		passrepo.save(pass);		
+		passrepo.save(pass);
 	}
 
-	
 //-----------------------Booking Header Table----------------------------
-	
+
 	@Autowired
 	private BookingRepository bookrepo;
-	
+
 	@Override
 	public List<BookingHeaderTable> getRecord() {
 		List<BookingHeaderTable> bookinglist = bookrepo.findAll();
@@ -212,10 +211,8 @@ public class TourManagerImpl implements TourManager {
 		bookrepo.save(rec);
 	}
 
-	
-	
 //----------------------Customer MAster-----------------------	
-	
+
 	@Autowired
 	private CustomerRepository custrepo;
 
@@ -238,12 +235,43 @@ public class TourManagerImpl implements TourManager {
 	@Override
 	public void updateCustomer(CustomerMaster cust) {
 		custrepo.save(cust);
-		
+
 	}
 
 	@Override
 	public Optional<CustomerMaster> getCustomerByID(Long id) {
 		return custrepo.findById(id);
+	}
+
+//---------------------Date Master--------------------------------------
+
+	@Autowired
+	private DateRepository daterepo;
+
+	@Override
+	public List<DateMaster> getDates() {
+		List<DateMaster> datelist = daterepo.findAll();
+		return datelist;
+	}
+
+	@Override
+	public void addDate(DateMaster date) {
+		daterepo.save(date);
+	}
+
+	@Override
+	public void deleteDate(Long id) {
+		daterepo.deleteById(id);
+	}
+
+	@Override
+	public void updateDate(DateMaster date) {
+		daterepo.save(date);
+	}
+
+	@Override
+	public Optional<DateMaster> getDateByID(Long id) {
+		return daterepo.findById(id);
 	}
 
 }

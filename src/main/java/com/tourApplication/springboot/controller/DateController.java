@@ -14,41 +14,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tourApplication.springboot.model.CustomerMaster;
+import com.tourApplication.springboot.model.DateMaster;
 import com.tourApplication.springboot.services.TourManager;
+
 
 @RestController
 @CrossOrigin
-@RequestMapping("/customer/")
-public class CustomerController {
-
+@RequestMapping("/date/")
+public class DateController {
 	
 	@Autowired
 	private TourManager tourManager;
 
-	@GetMapping("customers")
-	public List<CustomerMaster> getCustomers() {
-		List<CustomerMaster> costlist = tourManager.getCustomers();
-		return costlist;
+	@GetMapping("dates")
+	public List<DateMaster> getDates() {
+		List<DateMaster> datelist = tourManager.getDates();
+		return datelist;
 	}
 
-	@PostMapping("addcustomer")
-	public void createCustomer(@RequestBody CustomerMaster cust) {
-		tourManager.addCustomer(cust);
+	@PostMapping("adddates")
+	public void createDate(@RequestBody DateMaster date) {
+		tourManager.addDate(date);
 	}
 
-	@DeleteMapping("/customer/{id}")
-	public void deleteCustomer(@PathVariable Long id) {
-		tourManager.deleteCustomer(id);
+	@DeleteMapping("/date/{id}")
+	public void deleteDate(@PathVariable Long id) {
+		tourManager.deleteDate(id);
 	}
 	
-	@PutMapping("updateCustomer")
-	public void updateCustomer(@RequestBody CustomerMaster cust) {
-		tourManager.updateCustomer(cust);
+	@PutMapping("updatedate")
+	public void updateDate(@RequestBody DateMaster date) {
+		tourManager.updateDate(date);
 	}
 	
-	@GetMapping("/customer/{id}")
-	public Optional<CustomerMaster> getCustomerByID(@PathVariable Long id) {
-		return tourManager.getCustomerByID(id);
+	@GetMapping("/date/{id}")
+	public Optional<DateMaster> getDateByID(@PathVariable Long id) {
+		return tourManager.getDateByID(id);
 	}
+
 }
