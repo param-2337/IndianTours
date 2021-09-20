@@ -13,9 +13,10 @@ public class PassengerTable {
 	private long passengerId;
 	
 	private String passengerName;
-	private String passengerDOB;
+	private String passengerAge;
 	private String passengerType;
 	private double passengerAmount;
+	private String passengerGender;
 	
 	
 	public long getPassengerId() {
@@ -30,11 +31,11 @@ public class PassengerTable {
 	public void setPassengerName(String passengerName) {
 		this.passengerName = passengerName;
 	}
-	public String getPassengerDOB() {
-		return passengerDOB;
+	public String getPassengerAge() {
+		return passengerAge;
 	}
-	public void setPassengerDOB(String passengerDOB) {
-		this.passengerDOB = passengerDOB;
+	public void setPassengerAge(String passengerAge) {
+		this.passengerAge = passengerAge;
 	}
 	public String getPassengerType() {
 		return passengerType;
@@ -48,6 +49,10 @@ public class PassengerTable {
 	public void setPassengerAmount(double passengerAmount) {
 		this.passengerAmount = passengerAmount;
 	}
-	
-	
+	public String getPassengerGender() {
+		return passengerGender;
+	}
+	public void setPassengerGender(String passengerGender) {
+		this.passengerGender = passengerGender;
+	}
 }
