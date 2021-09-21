@@ -29,12 +29,12 @@ public class BookingHeaderTable {
 	@JoinColumn(name = "booking_id", referencedColumnName = "bookingId")
 	private List<PassengerTable> passengers;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "customer_id", referencedColumnName = "customerId")
 	private CustomerMaster customer;
 	
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "departure_id", referencedColumnName = "departureId")
 	private DateMaster date;
 	

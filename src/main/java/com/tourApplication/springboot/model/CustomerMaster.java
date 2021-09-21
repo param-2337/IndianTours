@@ -30,6 +30,8 @@ public class CustomerMaster {
 	private String customerIdProof;
 	private String customerIdProofNumber;
 	
+	@OneToOne(mappedBy = "customer")
+	private BookingHeaderTable bookhead;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "login_id", referencedColumnName = "loginId")

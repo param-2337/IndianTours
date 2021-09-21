@@ -1,5 +1,6 @@
 package com.tourApplication.springboot.controller;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,10 +38,22 @@ public class SignUpController {
 		return user;
 	}
 	
-	@GetMapping("userbyname/{username}")
-	public List<SignupMaster> getUserByUsername(@PathVariable String username) {
+	@GetMapping("userbyname/{username}/{password}")
+	public boolean getUserByUsername(@PathVariable String username, @PathVariable String password) {
 		List<SignupMaster> users = tourmanage.getUser(username);
-		return users;
+		Iterator<SignupMaster> itr = users.iterator();
+		boolean var = false;
+		String pass1 = password;
+		while(itr.hasNext())
+		{
+			SignupMaster user = itr.next();
+			String pass = user.getPassword();
+			if(pass1.equals(pass)) {
+				var = true;
+				break;
+			} 
+		}
+		return var;
 	}
 	
 	@PutMapping("updateUsername")

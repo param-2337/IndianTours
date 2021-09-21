@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class DateMaster {
@@ -17,6 +18,8 @@ public class DateMaster {
 	private int passengerLimit;
 	private int numberOfPassenger;
 	
+	@OneToOne(mappedBy = "date")
+	private BookingHeaderTable bookhead;
 	
 	public long getDepartureId() {
 		return departureId;
