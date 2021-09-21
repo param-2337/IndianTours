@@ -66,6 +66,11 @@ public class TourManagerImpl implements TourManager {
 	private SignUpRepository signrepo;
 
 	@Override
+	public List<SignupMaster> getUsers() {
+		return signrepo.findAll();
+	}
+	
+	@Override
 	public void saveNewUser(SignupMaster user) {
 		signrepo.save(user);
 	}
@@ -76,8 +81,9 @@ public class TourManagerImpl implements TourManager {
 	}
 
 	@Override
-	public void updateUsername(SignupMaster user) {
+	public Long updateUsername(SignupMaster user) {
 		signrepo.save(user);
+		return user.getLoginId();
 	}
 
 	@Override
@@ -273,5 +279,7 @@ public class TourManagerImpl implements TourManager {
 	public Optional<DateMaster> getDateByID(Long id) {
 		return daterepo.findById(id);
 	}
+
+	
 
 }

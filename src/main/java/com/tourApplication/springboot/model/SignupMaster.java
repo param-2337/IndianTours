@@ -34,6 +34,10 @@ public class SignupMaster {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	@Override
+	public String toString() {
+		return "SignupMaster [loginId=" + loginId + ", userName=" + userName + ", password=" + password + "]";
+	}
 	
 	
 

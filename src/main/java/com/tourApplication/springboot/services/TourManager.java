@@ -24,10 +24,11 @@ public interface TourManager {
 
 	
 	//SignUp Manager
+	List<SignupMaster> getUsers();
 	void saveNewUser(SignupMaster user);
 	List<SignupMaster> getUser(String username);
 	List<TourCategoryMaster> allCategories(String subcatid);
-	void updateUsername(SignupMaster user);
+	Long updateUsername(SignupMaster user);
 	void deleteUsername(Long id);
 
 	
@@ -77,5 +78,6 @@ public interface TourManager {
 	void deleteDate(Long id);
 	void updateDate(DateMaster date);
 	Optional<DateMaster> getDateByID(Long id);
+	
 	
 }

@@ -33,8 +33,11 @@ public class CustomerController {
 	}
 
 	@PostMapping("addcustomer")
-	public void createCustomer(@RequestBody CustomerMaster cust) {
+	public Long createCustomer(@RequestBody CustomerMaster cust) {
+//		cust.setSigninuser(sign);
+		System.out.println(cust);
 		tourManager.addCustomer(cust);
+		return cust.getCustomerId();
 	}
 
 	@DeleteMapping("/customer/{id}")

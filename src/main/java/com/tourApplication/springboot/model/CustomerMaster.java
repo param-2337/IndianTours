@@ -137,6 +137,17 @@ public class CustomerMaster {
 	public void setSigninuser(SignupMaster signinuser) {
 		this.signinuser = signinuser;
 	}
+	@Override
+	public String toString() {
+		return "CustomerMaster [customerId=" + customerId + ", customerFirstName=" + customerFirstName
+				+ ", customerMiddletName=" + customerMiddletName + ", customerLastName=" + customerLastName
+				+ ", customerAge=" + customerAge + ", customerRoomNumber=" + customerRoomNumber
+				+ ", customerBuildingName=" + customerBuildingName + ", customerStreet=" + customerStreet
+				+ ", customerArea=" + customerArea + ", City=" + City + ", State=" + State + ", pinCode=" + pinCode
+				+ ", phoneNumber=" + phoneNumber + ", emailAddress=" + emailAddress + ", customerIdProof="
+				+ customerIdProof + ", customerIdProofNumber=" + customerIdProofNumber + ", signinuser=" + signinuser
+				+ "]";
+	}
 	
 	
 }

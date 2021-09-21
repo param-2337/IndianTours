@@ -25,9 +25,16 @@ public class SignUpController {
 	@Autowired
 	private TourManager tourmanage;
 	
+	@GetMapping("users")
+	public List<SignupMaster> getUserByUsername() {
+		List<SignupMaster> allUsers = tourmanage.getUsers();
+		return allUsers;
+	}
+	
 	@PostMapping("user")
-	public void createUserAccount(@RequestBody SignupMaster user) {
+	public SignupMaster createUserAccount(@RequestBody SignupMaster user) {
 		tourmanage.saveNewUser(user);
+		return user;
 	}
 	
 	@GetMapping("userbyname/{username}")
@@ -37,8 +44,9 @@ public class SignUpController {
 	}
 	
 	@PutMapping("updateUsername")
-	public void updateUsername(@RequestBody SignupMaster user) {
-		tourmanage.updateUsername(user);
+	public Long updateUsername(@RequestBody SignupMaster user) {
+		Long id = tourmanage.updateUsername(user);
+		return id;
 	}
 	
 	@DeleteMapping("deleteUsername/{id}")
