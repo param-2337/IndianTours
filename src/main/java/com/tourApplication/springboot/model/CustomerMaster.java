@@ -1,12 +1,12 @@
 package com.tourApplication.springboot.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-
 
 @Entity
 public class CustomerMaster {
@@ -31,9 +31,9 @@ public class CustomerMaster {
 	private String customerIdProofNumber;
 	
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "login_id", referencedColumnName = "loginId")
-	private SignupMaster signinuser;
+	private SignupMaster user;
 	
 	public long getCustomerId() {
 		return customerId;
@@ -132,10 +132,10 @@ public class CustomerMaster {
 		this.customerIdProofNumber = customerIdProofNumber;
 	}
 	public SignupMaster getSigninuser() {
-		return signinuser;
+		return user;
 	}
 	public void setSigninuser(SignupMaster signinuser) {
-		this.signinuser = signinuser;
+		this.user = signinuser;
 	}
 	@Override
 	public String toString() {
@@ -145,7 +145,7 @@ public class CustomerMaster {
 				+ ", customerBuildingName=" + customerBuildingName + ", customerStreet=" + customerStreet
 				+ ", customerArea=" + customerArea + ", City=" + City + ", State=" + State + ", pinCode=" + pinCode
 				+ ", phoneNumber=" + phoneNumber + ", emailAddress=" + emailAddress + ", customerIdProof="
-				+ customerIdProof + ", customerIdProofNumber=" + customerIdProofNumber + ", signinuser=" + signinuser
+				+ customerIdProof + ", customerIdProofNumber=" + customerIdProofNumber + ", user=" + user
 				+ "]";
 	}
 	
