@@ -18,4 +18,7 @@ public interface TourCategoryRepository extends JpaRepository<TourCategoryMaster
 	List<TourCategoryMaster> findAll(String subcatid);
 	
 	//List<TourCategoryMaster> findBysubCategoryId(String subcatid);
+	
+	@Query("SELECT t FROM TourCategoryMaster t WHERE t.categoryName LIKE %?1% AND t.flag = 1")
+	List<TourCategoryMaster> findByCategoryName(String searchValue);
 }

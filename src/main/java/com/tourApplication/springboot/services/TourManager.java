@@ -21,6 +21,7 @@ public interface TourManager {
 	Optional<TourCategoryMaster> getRecordById(Long id);
 	void updateRecord(TourCategoryMaster tourcatmas);
 	void deleteRecord(Long id);
+	List<TourCategoryMaster> searchList(String searchValue);
 
 	
 	//SignUp Manager
@@ -78,6 +79,10 @@ public interface TourManager {
 	void deleteDate(Long id);
 	void updateDate(DateMaster date);
 	Optional<DateMaster> getDateByID(Long id);
+	
+	
+	
+	
 	
 	
 }

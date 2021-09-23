@@ -39,17 +39,17 @@ public class SignUpController {
 	}
 	
 	@GetMapping("userbyname/{username}/{password}")
-	public boolean getUserByUsername(@PathVariable String username, @PathVariable String password) {
+	public long getUserByUsername(@PathVariable String username, @PathVariable String password) {
 		List<SignupMaster> users = tourmanage.getUser(username);
 		Iterator<SignupMaster> itr = users.iterator();
-		boolean var = false;
+		long var = 0;
 		String pass1 = password;
 		while(itr.hasNext())
 		{
 			SignupMaster user = itr.next();
 			String pass = user.getPassword();
 			if(pass1.equals(pass)) {
-				var = true;
+				var = user.getLoginId();
 				break;
 			} 
 		}

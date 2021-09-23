@@ -61,4 +61,14 @@ public class TourCategoryController {
 	public void deleteRecord(@PathVariable Long id) {
 		tourManager.deleteRecord(id);
 	}
+	
+	
+	@GetMapping("records/search/{searchValue}")
+	public List<TourCategoryMaster> searchList(@PathVariable String searchValue){
+		List<TourCategoryMaster> catlist = tourManager.searchList(searchValue);
+		System.out.println(catlist);
+		return catlist;
+	}
+	
+	
 }
