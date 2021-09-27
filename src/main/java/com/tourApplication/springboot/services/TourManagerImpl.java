@@ -23,7 +23,6 @@ import com.tourApplication.springboot.repository.PassengerRepository;
 import com.tourApplication.springboot.repository.SignUpRepository;
 import com.tourApplication.springboot.repository.TourCategoryRepository;
 
-
 @Service
 public class TourManagerImpl implements TourManager {
 
@@ -61,12 +60,21 @@ public class TourManagerImpl implements TourManager {
 	public void deleteRecord(Long id) {
 		catrepo.deleteById(id);
 	}
-	
-	
+
 	@Override
 	public List<TourCategoryMaster> searchList(String searchValue) {
 		return catrepo.findByCategoryName(searchValue);
-		
+
+	}
+
+	@Override
+	public List<TourCategoryMaster> searchCostList(Long price) {
+		return catrepo.findByCostCategoryName(price);
+	}
+	
+	@Override
+	public List<TourCategoryMaster> searchDateList(String searchMonth) {
+		return catrepo.findByDateCategoryName(searchMonth);
 	}
 
 //--------------------SignUpMaster Manager---------------------------
@@ -77,7 +85,7 @@ public class TourManagerImpl implements TourManager {
 	public List<SignupMaster> getUsers() {
 		return signrepo.findAll();
 	}
-	
+
 	@Override
 	public void saveNewUser(SignupMaster user) {
 		signrepo.save(user);
@@ -287,8 +295,6 @@ public class TourManagerImpl implements TourManager {
 	public Optional<DateMaster> getDateByID(Long id) {
 		return daterepo.findById(id);
 	}
-
-	
 
 	
 

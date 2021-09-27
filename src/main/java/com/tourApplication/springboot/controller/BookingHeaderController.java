@@ -32,7 +32,8 @@ public class BookingHeaderController {
 
 	@PostMapping("/addbooking")
 	public void createBookingRecord(@RequestBody BookingHeaderTable rec) {
-		tourManager.addBookRecord(rec);
+		System.out.println(rec);
+//		tourManager.addBookRecord(rec);
 	}
 
 	@DeleteMapping("/deletebooking/{id}")

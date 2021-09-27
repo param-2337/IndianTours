@@ -71,4 +71,19 @@ public class TourCategoryController {
 	}
 	
 	
+	@GetMapping("records/searchcost/{searchCost}")
+	public List<TourCategoryMaster> searchCostList(@PathVariable String searchCost){
+		Long price  = Long.parseLong(searchCost);
+		List<TourCategoryMaster> catlist = tourManager.searchCostList(price);
+		System.out.println(catlist);
+		return catlist;
+	}
+	
+	@GetMapping("records/searchmonth/{searchMonth}")
+	public List<TourCategoryMaster> searchDateList(@PathVariable String searchMonth){
+		System.out.println(searchMonth);
+		List<TourCategoryMaster> catlist = tourManager.searchDateList(searchMonth);
+		System.out.println(catlist);
+		return catlist;
+	}
 }

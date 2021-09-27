@@ -37,7 +37,7 @@ public class DateController {
 		tourManager.addDate(date);
 	}
 
-	@DeleteMapping("/date/{id}")
+	@DeleteMapping("/deletedate/{id}")
 	public void deleteDate(@PathVariable Long id) {
 		tourManager.deleteDate(id);
 	}

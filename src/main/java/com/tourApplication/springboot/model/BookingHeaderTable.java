@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class BookingHeaderTable {
 	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long bookingId;
@@ -25,9 +26,9 @@ public class BookingHeaderTable {
 	private double totalAmount;
 	
 	
-	@OneToMany(targetEntity = PassengerTable.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "booking_id", referencedColumnName = "bookingId")
-	private List<PassengerTable> passengers;
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "booking_id", referencedColumnName = "bookingId")
+//	private List<PassengerTable> passengers;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "customer_id", referencedColumnName = "customerId")
@@ -37,6 +38,8 @@ public class BookingHeaderTable {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "departure_id", referencedColumnName = "departureId")
 	private DateMaster date;
+	
+	
 	
 	public long getBookingId() {
 		return bookingId;
@@ -74,12 +77,12 @@ public class BookingHeaderTable {
 	public void setTotalAmount(double totalAmount) {
 		this.totalAmount = totalAmount;
 	}
-	public List<PassengerTable> getPassengers() {
-		return passengers;
-	}
-	public void setPassengers(List<PassengerTable> passengers) {
-		this.passengers = passengers;
-	}
+//	public List<PassengerTable> getPassengers() {
+//		return passengers;
+//	}
+//	public void setPassengers(List<PassengerTable> passengers) {
+//		this.passengers = passengers;
+//	}
 	public CustomerMaster getCustomer() {
 		return customer;
 	}
@@ -93,4 +96,11 @@ public class BookingHeaderTable {
 		this.date = date;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "BookingHeaderTable [bookingId=" + bookingId + ", bookingType=" + bookingType + ", numberOfPass="
+				+ numberOfPass + ", tourAmount=" + tourAmount + ", taxes=" + taxes + ", totalAmount=" + totalAmount
+				+ ", passengers="  + ", customer=" + customer + ", date=" + date + "]";
+	}
 }
